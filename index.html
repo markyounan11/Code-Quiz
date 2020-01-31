@@ -12,32 +12,48 @@
   </head>
   <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-4">How well do you know JavaScript?</h1> <br>
-            <p class="lead">Click the start button below to begin the quiz!</p> <br>
-            <hr class="my-4">
 
-            <a class="btn btn-primary btn-lg" id="start" href="#" role="button">Start</a>
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-sm-12" id="header">
+                <h1>Code Quiz</h1>
+            </div>
         </div>
-        <br>
-        <div id="quiz">
-            <div id="question">Question:</div>
-            <div id="answer1">A</div>
-            <div id="answer2">B</div>
-            <div id="answer3">C</div>
-            <div id="answer4">D</div>
+        
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-sm-12" id="game-controls">
+                <button>Start</button>
+                <button>Highscores</button>
+                <button>Restart</button>
+                <div class="high-scores hidden">
+
+                </div>
+                <div class="display-message">
+
+                </div>
+            </div>
         </div>
-        <br>
-        <div>
-            <h3 id="score"> Score:</h3>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-sm-12" id="game-view">
+                <div class="game-start">
+    
+                </div>
+                <div class="questions hidden">
+    
+                </div>
+                <div class="end-game hidden">
+                    <button>Save Score</button>
+                    <button>Clear Scores</button>
+                </div>
+            </div>
         </div>
-        <div>
-            <h3 id="timer">Timer:</h3>
+
+        <div class="row">
+            <div class="col-md-8 offset-md-2 col-sm-12" id="footer">
+
+            </div>
         </div>
-        <br>
-        <div id="results"></div>
-            <h3>High Score:</h3>
-        </div>
+
     </div>
 
     <!-- Optional JavaScript -->
