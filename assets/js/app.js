@@ -1,340 +1,385 @@
-console.log(questions);
+// console.log(questions);
+// /*
+//   on page load: 
+//     show game start screen
+//     include how to play instructions
+//     add start quiz button
 
-/*
-  on page load: 
-    show game start screen
-    include how to play instructions
-    add start quiz button
-    
-  on start button click:
-    hide game-start div 
-    show questions div
-    show question
-    start timer
-  on answer selection:
-    check to see if answer is correct
-    if correct:
-      display success message
-      add to score
-      show next question
-    if incorrect:
-      display fail message
-      deduct time from timer
-      show next question
-  for game end:
-    if all the questions have been answered:
-      display score
-      prompt to save initials and results
-      on save:
-        record results in local storage
-    if time runs out:
-      display score
-      prompt to try again
-*/
-//1. get the display fx on correctly
-//2.make sure you can grab the correct value when user onlicks (b value = the correct b value)
-//3. making sure you have a logic statmt or fx to evalueate if choice ==answer (fx)
-// functions:
-//this gets triggered when you hit the start btn
-//1*
-function startGame(){
+//   on start button click:
+//     hide game-start div 
+//     show questions div
+//     show question
+//     start timer
+//   on answer selection:
+//     check to see if answer is correct
+//     if correct:
+//       display success message
+//       add to score
+//       show next question
+//     if incorrect:
+//       display fail message
+//       deduct time from timer
+//       show next question
+//   for game end:
+//     if all the questions have been answered:
+//       display score
+//       prompt to save initials and results
+//       on save:
+//         record results in local storage
+//     if time runs out:
+//       display score
+//       prompt to try again
+// */
+// /*
+//   functions:
+//     startGame()
+//     resetGame()
+//     endGame()
+//     restartGame()
+//     startTimer()
+//     decrementTimer()
+//     renderQuestion()
+//     checkAnswer()
+//     saveScore()
+//     clearScores()
+//     toggleScores()
+// */
 
-  // on start button click:
-  // hide game-start div 
-  // show questions div
-  // show question
-  // start timer
-  $(".btn").click(function(){
-    $("jumbotron").hide;
+// let timer = 60;
+// let score = 0;
+// let player = '';
+// let right = 0;
+// let wrong = 0;
+// // $timer = document.querySelector('.time');
+// let shuffledQuest, qIndex;
+// $('.start-button').click(function () {
+//   $('#header').toggle();
+//   $('#finish-game').hide();
+//   $('#game-view').show();
+//   // $('#finish-game').hide();
+//   // shuffledQuest = questions.sort(() => Math.random( - .5));
+//   qIndex = 0;
+//   //once you start your question to the first
+//   //start time
+//   setTime();
+//   renderQuestions();
+//   console.log(renderQuestions);
+//   // setTime();
+// });
+
+// // set timer
+// // set timer
+// function setTime(){
+//     let timeInterval = setInterval(function(){
+//       timer--;
+//       $('#timer').html(timer);
+//       console.log(timer);
+
+//       //what is our other cond when we what to stop time
+//       //if all questions have been answered
+//       //(how do we know we are at the end?)
+//       if (qIndex === questions.length) {
+//         clearInterval(timeInterval);
+//         //game is is out of time, game ends
+//         //alert out of time
+//         alert("out of time");
+//         //display via html the results
+//         displayResults()
+//       }
+
+//       //if time is zero
+//       if(timer === 0) {
+//         //clear the time / stop time
+//         clearInterval(timeInterval);
+//         //game is is out of time, game ends
+//         //alert out of time
+//         alert("out of time");
+//         //display via html
+//         displayResults()
+
+//       }
+//     }, 1000);}
+
+// function renderQuestions() {
+//   // showQuestion(shuffledQuest[qIndex])
+//   if (qIndex === questions.length) {
+//     displayResults()
+//   }
+//   else if (qIndex < questions.length) {
+
+
+//     console.log(qIndex);
+//     $('.questions').text(questions[qIndex].title)
+//     $('.choices').empty();
+//     for (let i = 0; i < 4; i++) {
+//       $('.choices').append(`<button class='options' data-val='${questions[qIndex].choices[i]}' 
+//     data-answer='${questions[qIndex].answer}'> ${questions[qIndex].choices[i]}</button>`)
+//     }
+
+//     if (qIndex <= questions.length - 1) {
+//       qIndex++
+//     }
+//     // else {
+//     //   displayResults()
+
+//     // }
+//   }
+// }
+
+// // function showQuestion(question) {
+
+// // }
+// // console.log(startGame);
+
+// function displayResults() {
+//   console.log('displayResults')
+
+//   $('#game-view').hide();
+//   $('#finish-game').show();
+//   $('.high-scores').html(`<h2 id = "rightAnswer">Correct Answers: ${right}</h2>
+//   <h2>Wrong Answers: ${wrong}</h2>`)
+// }
+// $('.choices').on('click', '.options', function (event) {
+//   event.preventDefault()
+//   var answer = $(this).attr('data-answer')
+//   var buttons = $(this).attr('data-val')
+//   if (answer === buttons) {
+//     right++
+//   }
+//   else {
+//     wrong++
+//   }
+//   renderQuestions()
+// })
+// //1.create onlick clear btn
+// $('#clear').on('click', function (event) {
+//   event.preventDefault()
+//   //3. whatever action you need to do (update whatever) 
+//   // if complex console.log to verify changes are correct
+//   right = 0;
+//   //4. stick to html to see visible changes () 
+//   //either dynamically updated or update location with updates
+//   $('.high-scores').html(`<h2 id = "rightAnswer">Correct Answers: ${right}</h2>`);
+//   //2. verify onclick works
+//   alert("Score has been cleared!");
+// })
+
+// //in save function, make sure you have a score array to save scores
+// //A. check if current score is high score, if so update local storage
+// //B. add the current score to  the score array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Data to be used
+  var state = {
+  currentQuestion: 0,
+  remainingTime: questions.length * 15, // from questions.js file
+  timer: 0,
+  timeOut: 0,
+  timePenalty: 15,
+  highScores: [] // [{initials: , score: }]
+}
+// Initiating func
+function init() {
+  // Get data from localStorage
+  var fromLocal = localStorage.getItem('highScores');
+  if (fromLocal) { state.highScores = JSON.parse(fromLocal); }
+  // Initiate page
+  document.querySelector('#intro').setAttribute('style', 'display:block;');
+  document.querySelector('#scores').setAttribute('style', 'display:none;');
+  // Initiate data
+  state.currentQuestion = 0;
+  state.remainingTime = questions.length * 15;
+  state.timer = 0;
+  state.timeOut = 0;
+  document.querySelector('#time__num').innerText = state.remainingTime;
+}
+// Questions page(get one key-value set of question as a param)
+function quizRender(data) {
+  document.querySelector('#quiz').setAttribute('style', 'display:block;');
+  // Render heading
+  var question = "<h2>" + data.title + "</h2>"
+  document.querySelector('.quiz__title').innerHTML = question;
+  // Render buttons
+  // 1. Delete previous question's btns
+  var choicesDOM = document.querySelector('.quiz__choices');
+  deleteChild(choicesDOM); // Func deleting all children
+  // 2. Create btns
+  for (var i = 0; i < data.choices.length; i++) {
+    var choice = document.createElement('button');
+    choice.innerText = (i + 1) + '. ' + data.choices[i];
+    choice.classList.add("choiceBtn", "btn", "btn-success"); // classes for style, bootstrap
+    // Set data attr to check the correct answer later
+    var answer = (data.answer === data.choices[i]) ? "correct" : "wrong";
+    choice.setAttribute('data-answer', answer);
+    choicesDOM.appendChild(choice);
+  }
+}
+// Timer & Timeout
+function timerFunc() {
+
+  // Func clearing timer and timeout that previously executed and currently running
+  clearTime();
+  var timeDOM = document.querySelector('#time__num');
+  timeDOM.innerText = state.remainingTime;
+
+  state.timer = setInterval(function () {
+    state.remainingTime--;
+    timeDOM.innerText = state.remainingTime; // countdown
+  }, 1000)
+  state.timeOut = setTimeout(function () {
+    clearInterval(state.timer);
+    result(); // func rendering result page
+  }, state.remainingTime * 1000)
+}
+// Result page
+function result() {
+
+  document.querySelector('#quiz').setAttribute('style', 'display:none;');
+  document.querySelector('#result').setAttribute('style', 'display:block;');
+  document.querySelector('.result__score').innerText = state.remainingTime;
+  clearInterval(state.timer);
+}
+// Render highscores page
+function renderHighScores() {
+  // 1. Sort scores(high score -> low score)
+  state.highScores.sort(function (a, b) { return b.score - a.score });
+  // 2. Delete all remaining scores that previously printed in page
+  var scoresDOM = document.querySelector('#scores__ranking');
+  deleteChild(scoresDOM);
+
+  // 3. Newly render
+  state.highScores.forEach(function (el, i) {
+    var rank = document.createElement('p')
+    rank.innerText = (i + 1) + ". " + el.initials + " - " + el.score;
+
+    scoresDOM.appendChild(rank);
   });
 }
-
-function resetGame(){
-
+// Render 'right' or 'correct' notification(get a param for a word saved as data attr in each choice DOM)
+function verdict(word) {
+  document.querySelector('#verdict__word').innerText = word;
+  document.querySelector('#verdict').setAttribute('style', 'opacity:1;');
+  setTimeout(function () {
+    document.querySelector('#verdict').setAttribute('style', 'opacity:0;');
+  }, 1000);
 }
-
-function endGame(){
-  //display scores
-  ////btn to call restartgame
-  //check scores against highscore (localstorage),
-  //if scores>highscore (localstorage), update score and name (via local storage)
-
+// Utility - delete children
+function deleteChild(DOM) {
+  if (DOM.children) {
+    Array.from(DOM.children).forEach(function (el) { el.remove(); });
+  }
 }
-
-
-function startTimer(){
-
+// Utility - clear timer and timeout
+function clearTime() {
+  if (state.timer > 0) { clearInterval(state.timer); }
+  if (state.timeOut > 0) { clearTimeout(state.timeOut); }
 }
-
-//will need a stop time
-
-//reset timer (when game is over)
-
-function decrementTimer(){
-  //timer-=5;
-
-}
-//2*
-function renderQuestion(){
-
-  //start timer
-}
-//3*
-function checkAnswer(/*choices*/){
-  //stop the time
-
-
-//check if true
-//wins++;
-//updated the display for wins
-//if false
-//lose++;
-//decrement timer
-//update lose score
-
-//i++;
-
-}
-
-function highScore(){
-
-}
-
-function clearScores(){
-
-}
-
-
-//remember to do an onlick trigger for startGame() for the resetbtn and startbtn class="start"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-  on page load: 
-    show game start screen
-    include how to play instructions
-    add start quiz button
-    
-  on start button click:
-    hide game-start div 
-    show questions div
-    show question
-    start timer
-  on answer selection:
-    check to see if answer is correct
-    if correct:
-      display success message
-      add to score
-      show next question
-    if incorrect:
-      display fail message
-      deduct time from timer
-      show next question
-  for game end:
-    if all the questions have been answered:
-      display score
-      prompt to save initials and results
-      on save:
-        record results in local storage
-    if time runs out:
-      display score
-      prompt to try again
-*/
-/*
-  functions:
-    startGame()
-    resetGame()
-    endGame()
-    restartGame()
-    startTimer()
-    decrementTimer()
-    renderQuestion()
-    checkAnswer()
-    saveScore()
-    clearScores()
-    toggleScores()
-*/
-
-let timer = 60;
-let score = 0;
-let player = '';
-let qIndex = 0;
-
-function startGame() {
-  // /**
-  //  hide game-start div
-  $("#game-start").hide;
-  //  show questions div
-  $("#questions").show;
-  startTimer();
-  //  */
-}
-
-function resetGame(score, timer) {
-  // /**
-  //  hide questions div
-  $("#questions").hide;
-  //  show game-start div
-  $("#game-start").show;
-  //  set score back to 0
-  score;
-  //  set timer back to initial value
-  timer;
-  //  */
-}
-
-function restartGame() {
-  // /**
-  //  call resetGame()
-  resetGame();
-  //  call startGame
-  startGame();
-  //  */
-}
-
-/**
- if questions.length-1 is equal to qIndex
- call endGame function
- */
-if(questions.length - 1 === qIndex) {
-  endGame();
-}
-
- function endGame() {
-  //  /**
-  //   hide questions div
-  $("#questions").hide;
-  //   show end-game div
-  $("#end-game").show;
-  //     show buttons for save score, clear scores, and restart quiz
-  //   display score
-  //   ask for name input
-  //   */
- }
-
- function startTimer() {
-  //  /**
-  let count = 60, timer = setInterval(function() {
-    $("#counter").html(count--);
-    if(count == 1) clearInterval(timer);
-}, 1000);
-  //   decrement time by 1 every 1000 ms
-  //   if timer <= 0:
-  //     clear interval
-  //     set timer to 0
-    endGame();
-  //   */
- }
-
- function decrementTimer() {
-  //  /**
-  //   subtract 5 from timer
-
-  //   display penalty message
-  alert("Incorrect");
-  //   */
- }
-
- function renderQuestion() {
-  //  /**
-  //   grab questions[qIndex] from questions array
-  questions[qIndex]
-  //   create html element for title
-  $(".questions").html("<h1>Questions</h1>");
-  
-
-  //   append to page
-  //   loop through choices array
-  
-  //   create html element for each choice
-  //   append choices to page
-  //   */
- }
-
- /**
-  add event listener to choices
-  call this function upon clicking on a choice
-  */
-
-  function checkAnswer() {
-    // /**
-    //  grab value of the chosen answer
-    //  compare it to the actual answer
-    //  if correct:
-    //   increment the score
-    //   increment qIndex
-    //   call renderQuestion()
-    // if incorrect:
-    //   call decrementTimer()
-    //   increment qIndex
-    //   call renderQuestion()
-    //  */
+/****************************
+ BUTTONS & EVENT HANDLER
+*****************************/
+// Start quiz button
+document.querySelector('#startBtn').addEventListener('click', function (e) {
+  // 1. Hide intro section
+  document.querySelector('#intro').setAttribute('style', 'display: none;')
+  // 2. Quiz render
+  quizRender(questions[state.currentQuestion]);
+  // 3. Start timer
+  timerFunc();
+});
+// Question's each choice btn
+document.querySelector('.quiz__choices').addEventListener('click', function (e) {
+
+  // 1. Check if answer is wrong
+  if (e.target.getAttribute('data-answer') !== "correct") {
+    state.remainingTime -= state.timePenalty;
+    timerFunc();
+    verdict("Wrong!");
+  }
+  else {
+    verdict("Correct!");
+  }
+  // 2. Move to next question
+  state.currentQuestion++;
+  // 3. When there is remaining question
+  if (state.currentQuestion < questions.length) {
+    quizRender(questions[state.currentQuestion]);
+  }
+  else {
+    result();
+    clearTimeout(state.timeOut);
   }
 
-  function saveScore() {
-    // /**
-    //  capture input value for name
-    //  save name and score in a new object
-    //  push new object into local storage array
-    //  display high-scores di
-    //  */
-  }
+})
+// Submit btn 
+  document.querySelector('#submitBtn').addEventListener('click', function () {
+  document.querySelector('#result').setAttribute('style', 'display:none;');
+  document.querySelector('#scores').setAttribute('style', 'display:block;');
+  // 1. Save user's info to state data obj & localStorage
+  var currentScore = {};
+  currentScore.initials = document.querySelector('#initials').value;
+  currentScore.score = state.remainingTime;
 
-  function clearScores() {
-    // /**
-    //  delete all names and scores from local storage
-    Storage.clear();
-    //  display high-scores div
-    $("#high-scores").show;
-    //  */
+  state.highScores.push(currentScore);
+  localStorage.setItem('highScores', JSON.stringify(state.highScores));
+  // 2. Render highscores page
+  renderHighScores()
+});
+// Go back & Clear Highscores btns
+document.querySelector('.scores__btn').addEventListener('click', function (e) {
+  // 1. Go back btn
+  if (e.target.matches('#gobackBtn')) {
+    init();
   }
+  // 2. Clear Highscores btn
+  else if (e.target.matches('#clearBtn')) {
+    // a. Delete state data obj
+    state.highScores = [];
 
-  function toggleScores() {
-    // /**
-    //  if hidden:
-    //   grab scores from local storage
-    //   sort scores from high to low
-    //   append to high-scores div
-    //   show high-scores div
-    // if visible:
-    //   hide high-scores div
-    //  */
+    // b. Clear rendered score list
+    var scoresDOM = document.querySelector('#scores__ranking');
+    deleteChild(scoresDOM);
+
+    // c. Clear localStorage
+    localStorage.removeItem('highScores');
   }
+});
+// View highscores button
+  document.querySelector('#viewScores').addEventListener('click', function () {
+  document.querySelector('#result').setAttribute('style', 'display:none;');
+  document.querySelector('#quiz').setAttribute('style', 'display:none;');
+  document.querySelector('#intro').setAttribute('style', 'display:none;');
+  document.querySelector('#scores').setAttribute('style', 'display:block;');
+
+  // Clear time when clicked while proceeding quiz
+  clearTime();
+  renderHighScores();
+});
+init();
